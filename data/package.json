@@ -1,0 +1,25 @@
+{
+  "name": "tweetin_usa",
+  "version": "1.0.0",
+  "description": "a visualization of one day's tweets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.github.com/jamesevers/tweetinusa"
+  },
+  "keywords": [
+    "d3",
+    "twitterstream",
+    "geo",
+    "data"
+  ],
+  "author": "Jamie Evers",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^4.7.0",
+    "geojson": "^0.4.1"
+  }
+}
