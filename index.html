@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="./assets/styles.scss">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<script src="https://use.fontawesome.com/0c9ba5204e.js"></script><script type="application/javascript" src="bundle.js"></script>
+</head>
+
+<script>
+  EntryPoint.showValue;
+  EntryPoint.switchData;
+  EntryPoint.startLoop;
+  EntryPoint.removeModal;
+  EntryPoint.displayTime;
+</script>
+
+<body>
+
+  <div id="aboutModal" class="modal">
+  <article class="modal-content">
+    <span class="close" onclick="EntryPoint.removeModal()">X</span>
+    <br/>
+    <p>Welcome to TwitterScope! TwitterScope is a visualization of tweets created across the country, giving us a glimpse of who's talking about what and where they're talking about it. I built the map with <a href="https://d3js.org/">d3.js</a> and captured the data using the <a href="https://dev.twitter.com/streaming/overview">Twitter API</a>
+    </p>
+    <p>
+      Visualizing the tweets is easy:
+    <ul>
+      <li>just drag the slider to the right and the Tweets will appear on the map along with the hour of the day they were created and the total number of Tweets collected at that time</li>
+      <li>Hover over an individual tweet to see the content of the Tweet and the exact time it was created</li>
+      <li>Enter text into the search bar to look for tweets containing keywords</li>
+    </ul>
+
+    You can find all kind of cool information this way.
+    <ul>
+      <li>Did you know that in 1978 there were more releases in the funk/soul genre than pop?  I didn't!</li>
+      <li>Also, check out the trend lines for Funk/Soul and Disco.  Shockingly similar!</li>
+    </ul>
+    </p>
+
+    <p>If you're interested, you can see more of my projects at <a href="https://github.com/jamesevers/">Github</a> or my <a href="mikeroess.me">portfolio</a>.
+    You can also check out <a href="https://www.linkedin.com/in/evers-james">LinkedIn</a> or <a href="https://angel.co/james-evers">AngelList</a> to get a better idea of who I am (in professional terms)
+    Feel free to get in touch with me at <a href="mailto:james.evers.w@gmail.com">james.evers.w@gmail.com</a>.
+    </p>
+    <br />
+    <br />
+    <br />
+  </article>
+</div>
+<div class="title-group">
+  <title>TS</title>
+  <header class="header">
+    <h1 class="title">TwitterScope</h1></span>
+    <h2 class="sub-title">A birds Eye View of America's Tweets</h2>
+  </header>
+</div>
+
+  <div class="body-group">
+     <svg width="960" height="650" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
+       <div class="range-container">
+         <input id="range" type="range"  min="2" max="7" value="2"
+         onchange="EntryPoint.showValue(this.value);
+         EntryPoint.switchData(this.value);"/>
+       </div>
+       <div class="details-container">
+         <h2 id="count-display"></h2>
+         <h3 id="word-counts"></h2>
+       </div>
+       <defs>
+         <filter id="blur">
+           <feGaussianBlur stdDeviation="5" />
+         </filter>
+         <radialGradient>
+           <stop offset="0%" stop-color="red"/>
+           <stop offset="100%" stop-color="blue"/>
+         </radialGradient>
+       </defs>
+     </svg>
+  </div>
+
+  <footer class="site-footer">
+  <div class="inner">
+    <ul class="icons">
+      <a href="http://github.com/jamesevers"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="http://linkedin.com/evers-james"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      <a href="http://jamesevers.github.io"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a>
+    </ul>
+  </div>
+</footer>
+
+
+
+
+</body>
