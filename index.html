@@ -22,10 +22,6 @@
   <div id="aboutModal" class="modal">
   <article class="modal-content">
     <span class="close" onclick="EntryPoint.removeModal()">X</span>
-    <header class="header">
-      <h1 class="title">TwitterScope</h1></span>
-      <h2 class="sub-title">A birds Eye View of America's Tweets</h2>
-    </header>
     <br/>
     <p>Welcome to TwitterScope! TwitterScope is a visualization of tweets created across the country, giving us a glimpse of who's talking about what and where they're talking about it. I built the map with <a href="https://d3js.org/">d3.js</a> and captured the data using the <a href="https://dev.twitter.com/streaming/overview">Twitter API</a>
     </p>
@@ -48,18 +44,24 @@
 </div>
 <div class="title-group">
   <title>TS</title>
+  <header class="header">
+    <h1 class="title">TwitterScope</h1></span>
+    <h2 class="sub-title">A birds Eye View of America's Tweets</h2>
+  </header>
 </div>
 
   <div class="body-group">
      <svg width="960" height="650" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
-       <div class="range-container">
-         <input id="range" type="range"  min="2" max="7" value="2"
-         onchange="EntryPoint.showValue(this.value);
-         EntryPoint.switchData(this.value);"/>
-       </div>
-       <div class="details-container">
-         <h2 id="count-display"></h2>
-         <h3 id="word-counts"></h2>
+       <div class="tweets-info">
+         <div class="range-container">
+           <input id="range" type="range"  min="1" max="12" value="1"
+           onchange="EntryPoint.showValue(this.value);
+           EntryPoint.switchData(this.value);"/>
+         </div>
+         <div class="details-container">
+           <h2 id="count-display"></h2>
+           <h3 id="word-counts"></h3>
+           </div>
        </div>
        <defs>
          <filter id="blur">

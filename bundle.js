@@ -64,20 +64,121 @@ var EntryPoint =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 312);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 134:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var d3 = __webpack_require__(167);
-var topojson = __webpack_require__(293);
-var Util = __webpack_require__(79);
+var Util = {
+  getJSON: function getJSON(url) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, false);
+    req.send(null);
+    return JSON.parse(req.responseText);
+  },
+  parseData: function parseData(data) {
+    var coords = [];
+    var keys = Object.keys(data);
+    keys.forEach(function (key) {
+      coords.push(data[key]);
+    });
+    return coords;
+  },
+  loadAllData: function loadAllData() {
+    var data = this.getJSON('https://raw.githubusercontent.com/jamesevers/TweetScope/master/data/new_tweets.json');
+    // const data = this.getJSON('https://raw.githubusercontent.com/jamesevers/TweetinUSA/master/data/march_tweets.json');
+    return this.parseData(data);
+  },
+  filterByTime: function filterByTime(data, hour) {
+    var tweets = [];
+    var keys = Object.keys(data);
+    var time = parseInt(hour);
+    keys.forEach(function (key) {
+      var tweet = data[key];
+      var date = new Date(tweet.created_at);
+      var tweetCreatedAt = date.getUTCHours();
+      if (tweetCreatedAt === time) {
+        tweets.push(tweet);
+      };
+    });
+    return tweets;
+  },
+  getDisplay: function getDisplay(data) {
+    var tweetCount = String(data.length);
+    var tweet = data[0].created_at;
+    var time = new Date(tweet);
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + '00' + ' ' + ampm;
+    document.getElementById("count-display").innerHTML = tweetCount + " Tweets at " + strTime;
+  },
+  wordCounts: function wordCounts(data) {
+    var counts = {};
+    var pattern = /\w+/g;
+    data.forEach(function (tweet) {
+      var tweetText = tweet.text;
+      //const matchedWords = tweetText.match(pattern);
+      var hashTags = tweetText.match(/#[a-z]+/gi);
+      if (hashTags !== null) {
+        hashTags.forEach(function (word) {
+          if (counts.hasOwnProperty(word)) {
+            counts[word] += 1;
+          } else {
+            counts[word] = 1;
+          }
+        });
+      }
+    });
+    return counts;
+  },
+  topWordCounts: function topWordCounts(data) {
+    var items = Object.keys(data).map(function (key) {
+      return [key, data[key]];
+    });
+    items.sort(function (first, second) {
+      return second[1] - first[1];
+    });
+    var objects = items.slice(0, 5);
+    var tags = "";
+    objects.forEach(function (item) {
+      tags += "<li>" + item[0].slice(1) + ": " + String(item[1]) + "</li>";
+    });
+    //  const tags = objects.map((item) => {return "<li>"+item[0].slice(1)+"</li>"; })
+    //  debugger
+
+    document.getElementById("word-counts").innerHTML = "<ul>" + tags + "</ul>";
+  },
+  openModal: function openModal() {
+    var aboutModal = document.getElementById("aboutModal");
+    aboutModal.style.display = "block";
+  },
+  removeModal: function removeModal() {
+    var aboutModal = document.getElementById("aboutModal");
+    aboutModal.style.display = "none";
+  }
+};
+
+module.exports = Util;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var d3 = __webpack_require__(3);
+var topojson = __webpack_require__(4);
+var Util = __webpack_require__(0);
 
 var Maps = {
   initialState: function initialState() {
@@ -157,8 +258,7 @@ var Maps = {
 module.exports = Maps;
 
 /***/ }),
-
-/***/ 135:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -176,8 +276,7 @@ var Slider = {
 module.exports = Slider;
 
 /***/ }),
-
-/***/ 167:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://d3js.org Version 4.7.0. Copyright 2017 Mike Bostock.
@@ -16740,8 +16839,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 
 /***/ }),
-
-/***/ 293:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/topojson/topojson Version 2.2.0. Copyright 2016 Mike Bostock.
@@ -18657,23 +18755,18 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 
 /***/ }),
-
-/***/ 312:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Util = __webpack_require__(79);
-var Maps = __webpack_require__(134);
-var Slider = __webpack_require__(135);
-//const TweetStream = require('./test_stream');
-
+var Util = __webpack_require__(0);
+var Maps = __webpack_require__(1);
+var Slider = __webpack_require__(2);
 
 document.addEventListener("DOMContentLoaded", function () {
-  //TweetStream.runStream();
   Util.openModal();
-
   Maps.initialState();
 });
 
@@ -18697,107 +18790,6 @@ module.exports = {
 
 };
 
-/***/ }),
-
-/***/ 79:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Util = {
-  getJSON: function getJSON(url) {
-    var req = new XMLHttpRequest();
-    req.open("GET", url, false);
-    req.send(null);
-    return JSON.parse(req.responseText);
-  },
-  parseData: function parseData(data) {
-    var coords = [];
-    var keys = Object.keys(data);
-    keys.forEach(function (key) {
-      coords.push(data[key]);
-    });
-    return coords;
-  },
-  loadAllData: function loadAllData() {
-    var data = this.getJSON('https://raw.githubusercontent.com/jamesevers/TweetScope/master/data/new_tweets.json');
-    // const data = this.getJSON('https://raw.githubusercontent.com/jamesevers/TweetinUSA/master/data/march_tweets.json');
-    return this.parseData(data);
-  },
-  filterByTime: function filterByTime(data, hour) {
-    var tweets = [];
-    var keys = Object.keys(data);
-    var time = parseInt(hour);
-    keys.forEach(function (key) {
-      var tweet = data[key];
-      var date = new Date(tweet.created_at);
-      var tweetCreatedAt = date.getUTCHours();
-      if (tweetCreatedAt === time) {
-        tweets.push(tweet);
-      };
-    });
-    return tweets;
-  },
-  getDisplay: function getDisplay(data) {
-    var tweetCount = String(data.length);
-    var tweet = data[0].created_at;
-    var time = new Date(tweet);
-    var hours = time.getHours();
-    var minutes = time.getMinutes();
-    var ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    var strTime = hours + ':' + '00' + ' ' + ampm;
-    document.getElementById("count-display").innerHTML = tweetCount + " Tweets at " + strTime;
-  },
-  wordCounts: function wordCounts(data) {
-    var counts = {};
-    var pattern = /\w+/g;
-    data.forEach(function (tweet) {
-      var tweetText = tweet.text;
-      //const matchedWords = tweetText.match(pattern);
-      var hashTags = tweetText.match(/#[a-z]+/gi);
-      if (hashTags !== null) {
-        hashTags.forEach(function (word) {
-          if (counts.hasOwnProperty(word)) {
-            counts[word] += 1;
-          } else {
-            counts[word] = 1;
-          }
-        });
-      }
-    });
-    return counts;
-  },
-  topWordCounts: function topWordCounts(data) {
-    var items = Object.keys(data).map(function (key) {
-      return [key, data[key]];
-    });
-    items.sort(function (first, second) {
-      return second[1] - first[1];
-    });
-    var objects = items.slice(0, 10);
-    var tags = objects.map(function (item) {
-      return item[0];
-    });
-
-    document.getElementById("word-counts").innerHTML = tags;
-  },
-  openModal: function openModal() {
-    var aboutModal = document.getElementById("aboutModal");
-    aboutModal.style.display = "block";
-  },
-  removeModal: function removeModal() {
-    var aboutModal = document.getElementById("aboutModal");
-    aboutModal.style.display = "none";
-  }
-};
-
-module.exports = Util;
-
 /***/ })
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=bundle.js.map
