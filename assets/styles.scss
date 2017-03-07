@@ -14,7 +14,12 @@ html, body {
 
 ul {
   list-style: none;
-  margin-left:0px;
+  margin:0;
+  padding:0;
+}
+
+ul > li {
+  padding-right:30px;
 }
 
 .header{
@@ -22,7 +27,7 @@ ul {
 
 .title-group{
   margin-bottom: 0px;
-  border: solid 1px black;
+  border: solid 1px #1D2951;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -30,8 +35,7 @@ ul {
   background: white;
 }
 #telescope{
-  margin-right: 100px;
-  margin-top: 25px;
+  margin-right: 10%;
 }
 .page-wrap {
   min-height: 100%;
@@ -43,12 +47,12 @@ ul {
   display: block;
 }
 .site-footer, .page-wrap:after {
-  height: 100px;
+  height: 50px;
 }
 .site-footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;;
+  justify-content: space-around;
   background: #1D2951;
 }
 
@@ -56,18 +60,28 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;;
-  background: #1D2951;}
+  background: #1D2951;
+}
+
+
 
 svg {
   display: block;
   margin: auto;
   padding: 0px;
   overflow: visible;
+  margin-left: 5%;
 }
 
 .fa {
   color: white;
   padding: 50px;
+  transition: box-shadow .5s ease;
+}
+
+.fa:hover {
+  color: #0084B4;
+  box-shadow: 2px 2px 5px 3px #0084B4;
 }
 .title {
   font-family: 'Ubuntu', sans-serif;
@@ -176,22 +190,37 @@ div.tooltip {
 .body-group {
   display: flex;
   flex-direction: row;
+  background: white;
 }
 
 .tweets-sidebar{
   display: flex;
   flex-direction: column;
-  background: white;
+  background: rgb(56, 80, 160);
 }
 
 .details-container{
   display: flex;
   flex-direction: column;
   padding: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+}
+
+.details-container li {
+  color: white;
 }
 
 #time-display {
   padding: 10px;
+}
+
+#tweet-total{
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 5px;
 }
 
 
@@ -199,18 +228,25 @@ div.tooltip {
   padding: 0px;
   margin-left: 0px;
   font-size: 24px;
-  color: #0084B4;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #trending-title{
-  color: #0084B4;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 5px;
+}
+
+.hashtags{
+  padding-left:0px;
 }
 
 #word-counts {
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  margin-left:0px;
+  // display: flex;
+  // flex-direction: column;
+  // font-size: 16px;
+  // margin-left:0px;
   color: #0084B4;
 }
 
@@ -244,19 +280,91 @@ input[type=range]::-webkit-slider-runnable-track {
   border: 0px;
 }
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
+  border: 1px solid #0084B4;
+  height: 16px;
   width: 16px;
-  border-radius: 3px;
+  border-radius: 6px;
   background: #ffffff;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -14px;
+  margin-top: -5px;
   background-image: url('https://www.welovesolo.com/wp-content/uploads/vecteezy/11/dg1p1qnkbbl.jpg')
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
     width: 50%;
-    background: #3850a0;
-    box-shadow: 4px 4px 5px 5px #3850a0;
+    background: #ffffff;
+    box-shadow: 4px 4px 5px 5px #ffffff;
+}
+
+
+/// search bar styles
+
+.container-4{
+  overflow: hidden;
+  width: 200px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.container-4 input#search{
+  width: 200px;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #fff;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container-4 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+
+.container-4 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+
+.container-4 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+
+.container-4 input#search:-ms-input-placeholder {
+   color: #65737e;
+}
+
+.container-4 button.icon{
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  border: none;
+  background: #232833;
+  height: 50px;
+  width: 50px;
+  color: #4f5b66;
+  opacity: 0;
+  font-size: 10pt;
+
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
+  outline: none;
+  opacity: 1;
+  margin-left: -50px;
+}
+
+.container-4:hover button.icon:hover{
+  background: white;
 }

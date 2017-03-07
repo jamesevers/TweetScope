@@ -118,7 +118,7 @@ var Util = {
     hours = hours ? hours : 12; // the hour '0' should be '12'
     minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + '00' + ' ' + ampm;
-    document.getElementById("count-display").innerHTML = tweetCount + " Tweets at " + strTime;
+    document.getElementById("count-display").innerHTML = '<h2 id="tweet-total"> ' + tweetCount + ' </h2>' + " Tweets at " + strTime;
   },
   wordCounts: function wordCounts(data) {
     var counts = {};
@@ -152,7 +152,7 @@ var Util = {
       tags += "<li>" + item[0].slice(1) + ": " + String(item[1]) + "</li>";
     });
 
-    document.getElementById("word-counts").innerHTML = "<ul>" + tags + "</ul>";
+    document.getElementById("word-counts").innerHTML = "<ul class='hashtags'>" + tags + "</ul>";
   },
   searchTweets: function searchTweets(data, searchTerm) {
     var tweets = this.parseData(data);
