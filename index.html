@@ -17,7 +17,7 @@
   EntryPoint.displayTime;
 </script>
 
-<body>
+<body id="body-block">
 
   <div id="aboutModal" class="modal">
   <article class="modal-content">
@@ -48,22 +48,23 @@
     <h1 class="title">TwitterScope</h1></span>
     <h2 class="sub-title">A birds Eye View of America's Tweets</h2>
   </header>
+  <img id="telescope" width="100px" height="100px" src="./assets/telescope.svg" alt="Kiwi standing on oval">
 </div>
 
   <div class="body-group">
      <svg width="960" height="650" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
+       <div class="tweets-sidebar">
        <div class="tweets-info">
-         <div class="range-container">
-           <input id="range" type="range"  min="1" max="12" value="1"
+           <input id="range" type="range"  min="1" max="11" value="1"
            onchange="EntryPoint.showValue(this.value);
            EntryPoint.switchData(this.value);"/>
-         </div>
          <div class="details-container">
            <h2 id="count-display"></h2>
-           <h3>Trending Hash Tags:</h3>
-           <h3 id="word-counts"></h3>
+           <h3 id="trending-title">Trending Hash Tags:</h3>
+           <ul id="word-counts"></ul>
            </div>
        </div>
+     </div>
        <defs>
          <filter id="blur">
            <feGaussianBlur stdDeviation="5" />
