@@ -91,7 +91,6 @@ var Util = {
   },
   loadAllData: function loadAllData() {
     var data = this.getJSON('https://raw.githubusercontent.com/jamesevers/TweetScope/master/data/new_tweets.json');
-    // const data = this.getJSON('https://raw.githubusercontent.com/jamesevers/TweetinUSA/master/data/march_tweets.json');
     return this.parseData(data);
   },
   filterByTime: function filterByTime(data, hour) {
@@ -152,10 +151,19 @@ var Util = {
     objects.forEach(function (item) {
       tags += "<li>" + item[0].slice(1) + ": " + String(item[1]) + "</li>";
     });
-    //  const tags = objects.map((item) => {return "<li>"+item[0].slice(1)+"</li>"; })
-    //  debugger
 
     document.getElementById("word-counts").innerHTML = "<ul>" + tags + "</ul>";
+  },
+  searchTweets: function searchTweets(data, searchTerm) {
+    var tweets = this.parseData(data);
+    var results = tweets.filter(this.searchText(searchTerm));
+    return results;
+  },
+  searchText: function searchText(searchTerm) {
+    return function (tweet) {
+      var text = tweet.text;
+      return text.includes(searchTerm);
+    };
   },
   openModal: function openModal() {
     var aboutModal = document.getElementById("aboutModal");
@@ -18778,6 +18786,7 @@ module.exports = {
   removeModal: function removeModal() {
     Util.removeModal();
   },
+
   switchData: function switchData(newValue) {
     Maps.clearCoords();
     var allData = Util.loadAllData();
@@ -18791,7 +18800,9 @@ module.exports = {
   searchTweets: function searchTweets(newValue) {
     Maps.clearCoords();
     var allData = Util.loadAllData();
-    var searchedTweets = Util.searchByTerm(allData, newValue);
+    var searchedTweets = Util.searchTweets(allData, newValue);
+    debugger;
+    Maps.placeCoords(searchedTweets);
   }
 
 };

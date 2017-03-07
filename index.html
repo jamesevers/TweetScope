@@ -15,6 +15,7 @@
   EntryPoint.startLoop;
   EntryPoint.removeModal;
   EntryPoint.displayTime;
+  EntryPoint.searchTweets;
 </script>
 
 <body id="body-block">
@@ -63,17 +64,11 @@
            <h3 id="trending-title">Trending Hash Tags:</h3>
            <ul id="word-counts"></ul>
            </div>
+         <div class="search-bar">
+           <input id="text-search" type="text" value="" onchange="EntryPoint.searchTweets(this.value)" />
+         </div>
        </div>
      </div>
-       <defs>
-         <filter id="blur">
-           <feGaussianBlur stdDeviation="5" />
-         </filter>
-         <radialGradient>
-           <stop offset="0%" stop-color="red"/>
-           <stop offset="100%" stop-color="blue"/>
-         </radialGradient>
-       </defs>
      </svg>
   </div>
 
