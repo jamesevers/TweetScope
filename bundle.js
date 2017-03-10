@@ -18774,7 +18774,6 @@ var Maps = __webpack_require__(1);
 var Slider = __webpack_require__(2);
 
 document.addEventListener("DOMContentLoaded", function () {
-  Util.openModal();
   Maps.initialState();
 });
 
@@ -18782,6 +18781,9 @@ module.exports = {
 
   showValue: function showValue(newValue) {
     document.getElementById("range").innerHTML = newValue;
+  },
+  openModal: function openModal() {
+    Util.openModal();
   },
   removeModal: function removeModal() {
     Util.removeModal();
