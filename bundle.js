@@ -18801,7 +18801,6 @@ module.exports = {
     Maps.clearCoords();
     var allData = Util.loadAllData();
     var searchedTweets = Util.searchTweets(allData, newValue);
-    debugger;
     Maps.placeCoords(searchedTweets);
   }
 

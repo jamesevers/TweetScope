@@ -1,0 +1,373 @@
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+
+
+#body-block{
+  background: #1D2951;
+}
+
+ul {
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+ul > li {
+  padding-right:30px;
+}
+
+.header{
+}
+
+.title-group{
+  margin-bottom: 0px;
+  border: solid 1px #1D2951;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: white;
+}
+#telescope{
+  margin-right: 10%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 50px;
+}
+.site-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #1D2951;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;;
+  background: #1D2951;
+}
+
+
+
+svg {
+  display: block;
+  margin: auto;
+  padding: 0px;
+  overflow: visible;
+  margin-left: 5%;
+}
+
+.fa {
+  color: white;
+  padding: 50px;
+  transition: box-shadow .5s ease;
+}
+
+.fa:hover {
+  color: #0084B4;
+  box-shadow: 2px 2px 5px 3px #0084B4;
+}
+.title {
+  font-family: 'Ubuntu', sans-serif;
+  color: #0084B4;
+  padding: 10px;
+  font-size: 32px;
+  font-weight: 800;
+  padding-left: 75px;
+}
+
+.sub-title {
+  font-family: 'Ubuntu', sans-serif;
+  color: #0084B4;
+  padding: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 75px;
+}
+
+.icons{
+  display:flex;
+  justify-content: space-around;
+}
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    //position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    margin-bottom: 15%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.border {
+  stroke: yellow;
+}
+
+.tweet-initial {
+  stroke: white;
+  stroke-width: 1;
+  opacity: .2;
+  fill: yellow;
+}
+
+.tweet {
+  stroke: white;
+  stroke-width: 4;
+  opacity: .2;
+  fill: yellow;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 7%;
+    width: 20%;
+    height: 10%;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: #354da0;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+
+.range-label{
+  color: white;
+  padding-top: 20px;
+}
+
+.body-group {
+  display: flex;
+  flex-direction: row;
+  background: white;
+}
+
+.tweets-sidebar{
+  display: flex;
+  flex-direction: column;
+  background: rgb(56, 80, 160);
+}
+
+.details-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+}
+
+.details-container li {
+  color: white;
+}
+
+#time-display {
+  padding: 10px;
+}
+
+#tweet-total{
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 5px;
+}
+
+
+#count-display {
+  padding: 0px;
+  margin-left: 0px;
+  font-size: 24px;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#trending-title{
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 5px;
+}
+
+.hashtags{
+  padding-left:0px;
+}
+
+.hashtags-list{
+  padding: 15px;
+}
+
+#word-counts {
+  color: #0084B4;
+}
+
+
+#range {
+  display:block;
+  width: 80%;
+  padding: 0px;
+  margin-left: 20px;
+}
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 50px 0;
+  background: #0084B4;
+  box-shadow: -4px -4px 5px 5px #0084B4;
+  transition: box-shadow .5s ease;
+}
+input[type=range]:focus {
+  outline: none;
+  box-shadow: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 200px;
+  height: 8.4px;
+  cursor: pointer;
+  background: #0084B4;
+  transition: box-shadow .5s ease;
+  border-radius: 3px;
+  border: 0px;
+}
+input[type=range]::-webkit-slider-thumb {
+  border: 1px solid #0084B4;
+  height: 16px;
+  width: 16px;
+  border-radius: 6px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+  background-image: url('https://www.welovesolo.com/wp-content/uploads/vecteezy/11/dg1p1qnkbbl.jpg')
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    width: 50%;
+    background: #ffffff;
+    box-shadow: 4px 4px 5px 5px #ffffff;
+}
+
+
+/// search bar styles
+
+.container-4{
+  overflow: hidden;
+  width: 150px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.container-4 input#search{
+  width: 210px;
+  height: 50px;
+  background: white;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #0084B4;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bolder;
+  padding-left: 15px;
+  margin-left: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container-4 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+
+.container-4 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+
+.container-4 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+
+.container-4 input#search:-ms-input-placeholder {
+   color: #65737e;
+}
+
+.container-4 button.icon{
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  border: none;
+  background: #232833;
+  height: 50px;
+  width: 30px;
+  color: #4f5b66;
+  opacity: 0;
+  font-size: 10pt;
+
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
+  outline: none;
+  opacity: 1;
+  margin-left: -30px;
+}
+
+.container-4:hover button.icon:hover{
+  background: white;
+}
