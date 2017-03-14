@@ -20,7 +20,8 @@ ul {
 }
 
 ul > li {
-  padding-right:30px;
+  padding:5px;
+  padding-left: 10px;
 }
 
 .header{
