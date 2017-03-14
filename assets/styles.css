@@ -46,6 +46,7 @@ ul > li {
 
 button {
   background: white;
+
   border: none;
   margin-right: 10%;
 }
@@ -257,6 +258,7 @@ div.tooltip {
   justify-content: center;
   font-family: 'Ubuntu', sans-serif;
   padding: 5px;
+  margin-right: 50%;
 }
 
 
