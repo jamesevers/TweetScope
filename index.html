@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="assets/styles.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"> -->
-<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 <script src="https://use.fontawesome.com/0c9ba5204e.js"></script>
 <script type="application/javascript" src="./bundle.js"></script>
@@ -22,39 +21,42 @@
 
 <body id="body-block">
 
-  <div id="aboutModal" class="modal">
-  <article class="modal-content">
-    <span class="close" onclick="EntryPoint.removeModal()">X</span>
-    <br/>
-    <p>Welcome to TwitterScope! TwitterScope is a visualization of tweets created across the country, giving us a glimpse of who's talking about what and where they're talking about it. I built the map with <a href="https://d3js.org/">d3.js</a> and captured the data using the <a href="https://dev.twitter.com/streaming/overview">Twitter API</a>
-    </p>
-    <p>
-      Visualizing the tweets is easy:
-    <ul>
-      <li>Drag the slider to the right and the Tweets will appear on the map along with the hour of the day they were created and the total number of Tweets collected at that time</li>
-      <li>Hover over an individual tweet to see the content of the Tweet and the exact time it was created</li>
-      <li>The display below the slider shows the number of tweets, the time of day when they were collected, and popular hashtags</li>
-    </ul>
-
-    <p>You can see more of my projects at <a href="https://github.com/jamesevers/">Github</a> or my <a href="jamievers.me">portfolio</a>.
-    You can also check out <a href="https://www.linkedin.com/in/evers-james">LinkedIn</a> or <a href="https://angel.co/james-evers">AngelList</a> to get a better idea of who I am (in professional terms)
-    Feel free to get in touch with me at <a href="mailto:james.evers.w@gmail.com">james.evers.w@gmail.com</a>.
-    </p>
-    <br />
-    <br />
-    <br />
-  </article>gith
-</div>
 <div class="title-group">
   <title>TS</title>
   <header class="header">
     <h1 class="title">TwitterScope</h1></span>
-    <h2 class="sub-title">A birds Eye View of America's Tweets</h2>
+    <h2 class="sub-title">a birds eye view of america's tweets</h2>
   </header>
-  <img id="telescope" width="100px" height="100px" src="./assets/telescope.svg" alt="Kiwi standing on oval">
+  <button type="button" name="button" onclick="EntryPoint.openModal()">
+    <img id="telescope" width="100px" height="100px" src="./assets/telescope.svg" alt="Kiwi standing on oval">
+  </button>
 </div>
 
   <div class="body-group">
+    <div id="aboutModal" class="modal">
+    <article class="modal-content">
+      <span class="close" onclick="EntryPoint.removeModal()">X</span>
+      <br/>
+      <br/>
+      <p>Welcome to TwitterScope! TwitterScope is a visualization of tweets created across the country, giving us a glimpse of who's talking about what and where they're talking about it. I built the map with <a href="https://d3js.org/">d3.js</a> and captured the data using the <a href="https://dev.twitter.com/streaming/overview">Twitter API</a>
+      </p>
+      <p>
+        Have a look around, you can:
+      <ul>
+        <li>Drag the slider to the right and the Tweets will appear on the map along with the hour of the day they were created and the total number of Tweets collected at that time</li>
+        <li>Hover over an individual tweet to see the content of the Tweet and the exact time it was created</li>
+        <li>Search for tweets by keyword</li>
+      </ul>
+
+      <p>You can see more of my projects at <a href="https://github.com/jamesevers/">Github</a> or my <a href="jamievers.me">portfolio</a>.
+      You can also check out <a href="https://www.linkedin.com/in/evers-james">LinkedIn</a> or <a href="https://angel.co/james-evers">AngelList</a> to learn more about me.
+      Feel free to get in touch with me at <a href="mailto:james.evers.w@gmail.com">james.evers.w@gmail.com</a>.
+      </p>
+      <br />
+      <br />
+      <br />
+    </article>
+  </div>
      <svg width="960" height="650" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
        <div class="tweets-sidebar">
        <div class="tweets-info">
