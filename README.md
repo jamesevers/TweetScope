@@ -1,6 +1,6 @@
 # TweetScope
 
-<a href="https://jamievers.site/TweetScope">Live Demo</a>
+<a href="http://jamievers.site/TweetScope">Live Demo</a>
 
 TweetScope is a data visualization application for exploring random samples of Twitter microblog posts over the course of one day. It was built with <a href="d3js.org">d3.js</a> and utilizes data scraped from the <a href="https://dev.twitter.com/streaming/overview"> Twitter streaming API</a>. 
 
