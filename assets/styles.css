@@ -66,10 +66,10 @@ button {
 }
 
 .inner {
-  display: flex;
   flex-direction: row;
   justify-content: space-around;;
   background: rgb(56, 80, 160);
+  margin-left: 0px;
 }
 
 
@@ -261,7 +261,7 @@ div.tooltip {
   display: flex;
   justify-content: center;
   font-family: 'Ubuntu', sans-serif;
-  padding: 5px;
+  padding: 15px;
   margin-right: 50%;
 }
 
@@ -278,6 +278,7 @@ div.tooltip {
   color: white;
   font-family: 'Ubuntu', sans-serif;
   padding: 5px;
+  margin-left: -15px;
 }
 
 .hashtags{
@@ -300,12 +301,11 @@ div.tooltip {
   margin-left: 20px;
 }
 
-
 input[type=range] {
   -webkit-appearance: none;
   margin: 50px 0;
   background: #0084B4;
-  box-shadow: -4px -4px 5px 5px #0084B4;
+  box-shadow: -4px -4px 0px 5px #0084B4;
   transition: box-shadow .5s ease;
 }
 input[type=range]:focus {
