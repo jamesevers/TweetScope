@@ -20,8 +20,7 @@ ul {
 }
 
 ul > li {
-  padding:5px;
-  padding-left: 10px;
+  padding:px;
 }
 
 .header{
@@ -207,15 +206,19 @@ div.tooltip {
     vertical-align: middle;
     line-height: 7%;
     width: 20%;
-    height: 10%;
-    padding: 2px;
-    font: 12px sans-serif;
+    height: 20%;
+    padding: 5px;
+    font: 12px 'Ubuntu', sans-serif;
+    font-weight: 500;
     background: #354da0;
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
     display: inline-block;
     overflow: hidden;
+    word-wrap: break-word;
+    box-shadow: 2px 2px 10px 1px grey;
+    border: 1px solid yellow;
   }
 
 
