@@ -379,3 +379,32 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .container-4 input#search:-ms-input-placeholder {
    color: #65737e;
 }
+
+
+#slider-cntnr {
+  width: 50%;
+  margin: 40px;
+  position: relative;
+}
+
+#frame-slider {
+  width: 100%;
+  margin: 0;
+}
+
+#slider-follow {
+  margin-left: -14px;
+  background-color: white;
+  width: 30px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+#slider-val-cntnr {
+  background-color: white;
+  width: 25px;
+  height: 20px;
+}

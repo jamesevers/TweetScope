@@ -119,6 +119,7 @@ var Util = {
     minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + '00' + ' ' + ampm;
     document.getElementById("count-display").innerHTML = '<h2 id="tweet-total"> ' + tweetCount + ' </h2>' + " Tweets at " + strTime;
+    document.getElementById("slider-val").innerHTML = strTime;
   },
   wordCounts: function wordCounts(data) {
     var counts = {};
@@ -18787,6 +18788,15 @@ module.exports = {
   },
   removeModal: function removeModal() {
     Util.removeModal();
+  },
+
+  sliderValue: function sliderValue(value) {
+    var follower = document.getElementById('slider-follow');
+    var followerValue = document.getElementById('slider-val');
+    var slider = document.getElementById('frame-slider');
+
+    followerValue.innerHTML = value;
+    follower.style.left = value * 10 + '%';
   },
 
   switchData: function switchData(newValue) {
