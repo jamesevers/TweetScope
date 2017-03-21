@@ -259,10 +259,9 @@ div.tooltip {
 #tweet-total{
   color: white;
   display: flex;
-  justify-content: center;
   font-family: 'Ubuntu', sans-serif;
   padding: 15px;
-  margin-right: 50%;
+  padding-left: 0px;
 }
 
 
@@ -393,18 +392,32 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 #slider-follow {
-  margin-left: -14px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: -30%;
   background-color: white;
-  width: 30px;
+  width: 50%;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  display: inline-block;
+  overflow: hidden;
+  word-wrap: break-word;
+  box-shadow: 2px 2px 10px 1px grey;
+  border: 1px solid yellow;
 }
 
 #slider-val-cntnr {
+  margin-top: 25%;
   background-color: white;
-  width: 25px;
   height: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  color:rgb(56, 80, 160);
+  font-weight: bolder;
 }

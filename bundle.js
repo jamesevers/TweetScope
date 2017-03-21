@@ -118,7 +118,7 @@ var Util = {
     hours = hours ? hours : 12; // the hour '0' should be '12'
     minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + '00' + ' ' + ampm;
-    document.getElementById("count-display").innerHTML = '<h2 id="tweet-total"> ' + tweetCount + ' </h2>' + " Tweets at " + strTime;
+    document.getElementById("count-display").innerHTML = '<h3 id="tweet-total"> Total Tweets: ' + tweetCount + ' </h3>';
     document.getElementById("slider-val").innerHTML = strTime;
   },
   wordCounts: function wordCounts(data) {
