@@ -150,7 +150,11 @@ var Util = {
     var objects = items.slice(0, 5);
     var tags = "";
     objects.forEach(function (item) {
+<<<<<<< HEAD
       tags += "<li>" + "#" + item[0].slice(1) + "</li>";
+=======
+      tags += "<li>" + item[0].slice(1) + "</li>";
+>>>>>>> master
     });
 
     document.getElementById("word-counts").innerHTML = "<ul class='hashtags'>" + tags + "</ul>";
@@ -167,6 +171,7 @@ var Util = {
     };
   },
   openModal: function openModal() {
+    console.log('gay');
     var aboutModal = document.getElementById("aboutModal");
     aboutModal.style.display = "block";
   },
